@@ -16,7 +16,7 @@ function Feed() {
       <div className="border-b-[1px] border-border h-12 flex justify-end items-center gap-2">
         <h3>View:</h3>
         <Button
-          bg={`${view === "card" && "light"}`}
+          light={`${view === "card" ? "true" : ""}`}
           className="gap-2"
           onClick={() => {
             setView("card");
@@ -26,7 +26,7 @@ function Feed() {
           Card
         </Button>
         <Button
-          bg={`${view === "classic" && "light"}`}
+          light={`${view === "classic" ? "true" : ""}`}
           className="gap-2"
           onClick={() => {
             setView("classic");
@@ -37,7 +37,7 @@ function Feed() {
         </Button>
       </div>
       {posts.map((post) => {
-        return <HomePost post={post} key={post.id} />;
+        return <HomePost post={post} key={post.id} view={view} />;
       })}
     </div>
   );

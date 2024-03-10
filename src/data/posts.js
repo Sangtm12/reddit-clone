@@ -30,7 +30,11 @@ export const posts = [
   },
   {
     id: 124,
-    community: "explainlikeimfive",
+    community: {
+      title: "explainlikeimfive",
+      photo: "/communities/explainlikeimfive.png",
+      link: "/community/explainlikeimfive",
+    },
     user: "DiscoDvck",
     date: "13 hr. ago",
     title:

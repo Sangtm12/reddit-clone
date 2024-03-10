@@ -1,5 +1,5 @@
 import Feed from "../features/post/Feed";
-import RecentPosts from "../ui/RecentPosts";
+import RecentPosts from "../features/post/RecentPosts";
 
 function Home() {
   return (

@@ -1,6 +1,6 @@
-import Recent from "./Recent";
+import Recent from "../features/communities/Recent";
 import SortBy from "./SortBy";
-import YourCommunities from "./YourCommunities";
+import YourCommunities from "../features/communities/YourCommunities";
 
 function Sidebar() {
   return (

@@ -17,7 +17,7 @@ function Header() {
           <HiOutlinePlus />
           <span className="ml-1">Create</span>
         </Button>
-        <Button bg="light">Login</Button>
+        <Button light>Login</Button>
       </div>
     </div>
   );

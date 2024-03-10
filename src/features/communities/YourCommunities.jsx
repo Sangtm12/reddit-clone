@@ -1,6 +1,8 @@
 import { HiOutlinePlus } from "react-icons/hi";
-import DropDown from "./DropDown";
-import { Link } from "react-router-dom";
+import DropDown from "../../ui/DropDown";
+
+import { communities } from "../../data/communities";
+import CommunitySideBar from "./CommunitySideBar";
 
 function YourCommunities() {
   return (
@@ -14,17 +16,13 @@ function YourCommunities() {
               Create a new community
             </button>
           </DropDown.Item>
-          <DropDown.Item>
-            <Link to="/abc" className="block">
-              Abc
-            </Link>
-          </DropDown.Item>
-          <DropDown.Item>
-            <Link to="/">Abc</Link>
-          </DropDown.Item>
-          <DropDown.Item>
-            <Link to="/">Abc</Link>
-          </DropDown.Item>
+          {communities.map((community) => {
+            return (
+              <DropDown.Item key="community.name">
+                <CommunitySideBar community={community} />
+              </DropDown.Item>
+            );
+          })}
         </DropDown.Content>
       </DropDown>
     </>

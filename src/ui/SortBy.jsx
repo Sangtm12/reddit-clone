@@ -1,6 +1,10 @@
 import { useSearchParams } from "react-router-dom";
 import DropDown from "./DropDown";
 
+import { CiCalendarDate } from "react-icons/ci";
+import { PiArrowFatUp } from "react-icons/pi";
+import { MdOutlineInsertComment } from "react-icons/md";
+
 function SortBy() {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -18,27 +22,30 @@ function SortBy() {
             <button
               onClick={handleClick}
               data-value="abc"
-              className="w-full h-full text-left"
+              className="w-full h-full text-left flex items-center gap-2"
             >
-              abccccc
+              <CiCalendarDate className="text-xl" />
+              Date posted
             </button>
           </DropDown.Item>
           <DropDown.Item>
             <button
               onClick={handleClick}
               data-value="def"
-              className="w-full h-full text-left"
+              className="w-full h-full text-left flex items-center gap-2"
             >
-              Def
+              <PiArrowFatUp className="text-xl" />
+              Upvotes
             </button>
           </DropDown.Item>
           <DropDown.Item>
             <button
               onClick={handleClick}
               data-value="ghi"
-              className="w-full h-full text-left"
+              className="w-full h-full text-left flex items-center gap-2"
             >
-              Ghi
+              <MdOutlineInsertComment className="text-xl" />
+              Comments
             </button>
           </DropDown.Item>
         </DropDown.Content>
