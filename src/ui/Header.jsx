@@ -1,15 +1,13 @@
 import Searchbar from "../features/search/Searchbar";
 import Button from "./Button";
 import { HiOutlinePlus } from "react-icons/hi2";
+import Logo from "./Logo";
 
 function Header() {
   return (
     <div className="flex items-center justify-between border-b-[1px] border-border h-10 px-4 py-7 ">
-      <div className="flex items-center basis-96">
-        <img src="/logo.png" className="py-2 h-12" />
-        <span className="font-logo font-bold ml-2 text-3xl leading-[100%]">
-          reddit
-        </span>
+      <div className="basis-96">
+        <Logo />
       </div>
       <div className=" basis-[80%] pr-[20%]">
         <Searchbar />

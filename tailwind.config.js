@@ -10,6 +10,8 @@ export default {
         "background-dark": "#04090A",
         "background-hover": "#223237",
         "text-secondary": "#82959B",
+        "text-neutral": "#B8C5C9",
+        "post-hover": "#131F23",
         border: "rgba(255,255,255,.1)",
       },
       fontFamily: {

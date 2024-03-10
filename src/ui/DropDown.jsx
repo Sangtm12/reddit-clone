@@ -45,7 +45,9 @@ function Content({ children }) {
 
 function Item({ children }) {
   return (
-    <div className="hover:bg-background-light rounded-md p-2">{children}</div>
+    <div className="hover:bg-background-light rounded-md py-2 pl-2">
+      {children}
+    </div>
   );
 }
 

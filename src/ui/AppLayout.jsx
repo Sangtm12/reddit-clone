@@ -7,7 +7,7 @@ function AppLayout() {
     <div className="h-screen ">
       <Header />
       <div className="flex h-[90%] max-w-[1400px] m-auto">
-        <div className=" basis-64 border-r-[1px] border-border h-full p-4">
+        <div className=" basis-72 border-r-[1px] border-border h-full p-4 hidden lg:block">
           <Sidebar />
         </div>
         <Outlet />

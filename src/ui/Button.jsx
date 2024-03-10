@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
-function Button({ children, bg }) {
+function Button({ children, bg, className, onClick }) {
   return (
     <button
       className={`flex justify-center items-center font-semibold ${
         bg === "light" && "bg-background-light"
-      } hover:bg-background-hover px-4 py-2 rounded-full`}
+      } hover:bg-background-hover px-4 py-2 rounded-full ${className}`}
+      onClick={onClick}
     >
       {children}
     </button>
