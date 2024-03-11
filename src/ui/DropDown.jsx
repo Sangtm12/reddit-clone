@@ -3,14 +3,12 @@ import { HiChevronUp, HiChevronDown } from "react-icons/hi2";
 
 const DropDownContext = createContext();
 
-function DropDown({ children }) {
-  const [open, setOpen] = useState(true);
+function DropDown({ children, initialState = true }) {
+  const [open, setOpen] = useState(initialState);
 
   return (
     <DropDownContext.Provider value={{ open, setOpen }}>
-      <div className="border-b-[1px] border-border pb-4 mb-4 select-none font-medium">
-        {children}
-      </div>
+      {children}
     </DropDownContext.Provider>
   );
 }
@@ -19,12 +17,12 @@ function Title({ children }) {
   const { open, setOpen } = useContext(DropDownContext);
   return (
     <div
-      className="hover:bg-background-hover p-2 rounded-lg flex justify-between items-center"
+      className="hover:bg-background-hover rounded-lg flex gap-2 justify-between items-center p-2 select-none font-semibold"
       onClick={() => {
         setOpen((o) => !o);
       }}
     >
-      <h2>{children}</h2>
+      <div className="flex-1">{children}</div>
       {open ? <HiChevronUp /> : <HiChevronDown />}
     </div>
   );
@@ -45,9 +43,7 @@ function Content({ children }) {
 
 function Item({ children }) {
   return (
-    <div className="hover:bg-background-light rounded-md py-2 pl-2">
-      {children}
-    </div>
+    <div className="hover:bg-background-light rounded-md p-2">{children}</div>
   );
 }
 

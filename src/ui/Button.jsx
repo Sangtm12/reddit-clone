@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function Button({ children, light, rounded, className, onClick }) {
+function Button({ children, light, rounded, className = "", ...rest }) {
   return (
     <button
       className={`flex justify-center items-center font-semibold ${
@@ -7,7 +7,7 @@ function Button({ children, light, rounded, className, onClick }) {
       } ${
         rounded ? "px-2" : "px-4"
       } hover:bg-background-hover py-2 rounded-full ${className}`}
-      onClick={onClick}
+      {...rest}
     >
       {children}
     </button>

@@ -8,17 +8,19 @@ function YourCommunities() {
   return (
     <>
       <DropDown>
-        <DropDown.Title>Your Communities</DropDown.Title>
+        <DropDown.Title>
+          <h2>Your Communities</h2>
+        </DropDown.Title>
         <DropDown.Content>
           <DropDown.Item>
-            <button>
+            <button className="flex items-center">
               <HiOutlinePlus className="inline text-2xl mr-2" />
-              Create a new community
+              Create a community
             </button>
           </DropDown.Item>
           {communities.map((community) => {
             return (
-              <DropDown.Item key="community.name">
+              <DropDown.Item key={community.name}>
                 <CommunitySideBar community={community} />
               </DropDown.Item>
             );

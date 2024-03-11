@@ -16,7 +16,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/r/:communityId" element={<Community />} />
           <Route path="/profile/:profileId" element={<Profile />} />
-          <Route path="/post/:postId" element={<Post />} />
+          <Route path="/r/:communityId/:postId" element={<Post />} />
         </Route>
       </Routes>
     </BrowserRouter>

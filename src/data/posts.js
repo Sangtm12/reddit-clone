@@ -3,8 +3,7 @@ export const posts = [
     id: 123,
     community: {
       title: "3amjokes",
-      photo: "communities/3amjokes.png",
-      link: "/community/3amjokes",
+      photo: "/communities/3amjokes.png",
     },
     user: "DiscoDvck",
     date: "15 days ago",
@@ -33,7 +32,6 @@ export const posts = [
     community: {
       title: "explainlikeimfive",
       photo: "/communities/explainlikeimfive.png",
-      link: "/community/explainlikeimfive",
     },
     user: "DiscoDvck",
     date: "13 hr. ago",
