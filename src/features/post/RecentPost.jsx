@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ProfilePhoto from "../../ui/ProfilePhoto";
 
 function RecentPost({ post }) {
   return (
@@ -10,10 +11,7 @@ function RecentPost({ post }) {
         to={`r/${post.community.title}`}
         className="flex items-center gap-2 py-2"
       >
-        <img
-          src={post.community.photo}
-          className="h-6 w-6 rounded-xl border-[1px] border-neutral-500"
-        />
+        <ProfilePhoto src={post.community.photo} />
         <span className="text-xs text-text-secondary font-semibold  hover:underline">
           r/{post.community.title}
         </span>

@@ -4,15 +4,16 @@ import Sidebar from "./Sidebar";
 
 function AppLayout() {
   return (
-    <div className="h-screen ">
+    <>
       <Header />
-      <div className="flex h-[90%] max-w-[1400px] m-auto">
-        <div className=" basis-72 border-r-[1px] border-border h-full p-4 hidden lg:block">
+      <div className="flex max-w-[1400px] m-auto h-[90vh]">
+        <div className=" min-w-72 border-r-[1px] border-border h-full p-4 hidden lg:block overflow-auto">
           <Sidebar />
         </div>
+
         <Outlet />
       </div>
-    </div>
+    </>
   );
 }
 

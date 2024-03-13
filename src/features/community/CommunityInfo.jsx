@@ -11,7 +11,7 @@ function Container({ children }) {
   );
 }
 
-function CommunityInfo() {
+function CommunityInfo({ className }) {
   const { communityId } = useParams();
 
   const currentCommunity = communities.find(
@@ -19,7 +19,9 @@ function CommunityInfo() {
   );
 
   return (
-    <div className="bg-background-dark py-4 m-4 rounded-2xl">
+    <div
+      className={`bg-background-dark py-4 m-4 rounded-2xl h-min ${className}`}
+    >
       <Container>
         <div className="flex justify-between items-center">
           <Link to={`/r/${communityId}`} className="hover:underline">

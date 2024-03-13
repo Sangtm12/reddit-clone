@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { PiArrowFatDown, PiArrowFatUp } from "react-icons/pi";
 import { MdOutlineInsertComment } from "react-icons/md";
+import ProfilePhoto from "../../ui/ProfilePhoto";
 
 import Button from "../../ui/Button";
 
-function HomePost({ post, view }) {
+function HomePost({ post, view = "card" }) {
   let previewText;
   let wordArray = post.text.split(" ");
   if (wordArray.length > 70) {
@@ -16,15 +17,12 @@ function HomePost({ post, view }) {
 
   return (
     <div className="border-b-[1px] border-border">
-      <Link to={`r/${post.community.title}/${post.id}`}>
+      <Link to={`/r/${post.community.title}/${post.id}`}>
         <div className="hover:bg-post-hover px-4 py-2 rounded-2xl">
           <div className="flex items-center gap-2 text-text-secondary text-xs">
-            <img
-              src={post.community.photo}
-              className="h-6 w-6 rounded-xl border-[1px] border-neutral-500"
-            />
+            <ProfilePhoto src={post.community.photo} size="big" />
             <Link
-              to={"/" + post.community.link}
+              to={"/r/" + post.community.title}
               className="font-bold text-text-neutral hover:underline"
             >
               r/{post.community.title}

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "../../ui/Button";
 
-function AddComment() {
+function AddComment({ className }) {
   const [focus, setFocus] = useState(false);
   const ref = useRef();
 
@@ -13,9 +13,9 @@ function AddComment() {
 
   return (
     <div
-      className={`mt-6 relative border-2 border-border rounded-3xl p-4 ${
+      className={`relative border-2 border-border rounded-3xl p-4 ${
         focus && "pb-12"
-      }`}
+      } ${className}`}
       onClick={() => {
         setFocus(true);
       }}

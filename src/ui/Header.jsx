@@ -5,7 +5,7 @@ import Logo from "./Logo";
 
 function Header() {
   return (
-    <div className="flex items-center justify-between border-b-[1px] border-border h-10 px-4 py-7 ">
+    <div className="flex items-center justify-between border-b-[1px] border-border bg-background h-10 px-4 py-7 sticky top-0 z-10">
       <div className="basis-96">
         <Logo />
       </div>

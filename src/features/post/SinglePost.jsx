@@ -5,6 +5,7 @@ import { PiArrowFatDown, PiArrowFatUp } from "react-icons/pi";
 import { MdOutlineInsertComment } from "react-icons/md";
 import PostComments from "./PostComments";
 import AddComment from "./AddComment";
+import ProfilePhoto from "../../ui/ProfilePhoto";
 
 function Post() {
   const { postId } = useParams();
@@ -13,10 +14,7 @@ function Post() {
   return (
     <div className="p-8">
       <div className="flex items-center gap-3">
-        <img
-          src={currentPost?.community.photo}
-          className="w-8 h-8 rounded-full"
-        />
+        <ProfilePhoto src={currentPost?.community.photo} size="big" />
         <div>
           <Link to={`/r/${currentPost.community.title}`}>
             <h3 className="font-bold inline-block hover:underline">
@@ -45,8 +43,10 @@ function Post() {
           {currentPost.comments?.length}
         </Button>
       </div>
-      <AddComment />
-      <PostComments />
+
+      <AddComment className="my-8" />
+
+      <PostComments post={currentPost} />
     </div>
   );
 }

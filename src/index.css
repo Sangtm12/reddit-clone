@@ -22,4 +22,22 @@
   h4 {
     @apply font-bold text-lg;
   }
+
+  img {
+    @apply max-w-none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 0.6rem;
+    border-radius: 10rem;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #04090a;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #1a282d;
+    border-radius: 10rem;
+  }
 }
