@@ -1,0 +1,17 @@
+import CreateInput from "../features/create/CreateInput";
+import CreateRules from "../features/create/CreateRules";
+
+function Create() {
+  return (
+    <div className="grid grid-cols-[auto_370px] w-full">
+      <div className=" mt-8 ">
+        <CreateInput />
+      </div>
+      <div className="overflow-y-auto">
+        <CreateRules />
+      </div>
+    </div>
+  );
+}
+
+export default Create;

@@ -6,6 +6,7 @@ import Community from "./pages/Community";
 import Profile from "./pages/Profile";
 import Post from "./pages/Post";
 import AppLayout from "./ui/AppLayout";
+import Create from "./pages/Create";
 
 function App() {
   return (
@@ -14,9 +15,11 @@ function App() {
         <Route element={<AppLayout />}>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/r/:communityId" element={<Community />} />
+          <Route path="/r/:communityId/" element={<Community />} />
+          <Route path="/r/:communityId/create" element={<Create />} />
           <Route path="/profile/:profileId" element={<Profile />} />
           <Route path="/r/:communityId/:postId" element={<Post />} />
+          <Route path="/create" element={<Create />} />
         </Route>
       </Routes>
     </BrowserRouter>

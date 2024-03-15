@@ -27,6 +27,14 @@
     @apply max-w-none;
   }
 
+  select {
+    @apply bg-background-dark p-3 w-52;
+  }
+
+  option {
+    @apply p-3 w-52;
+  }
+
   ::-webkit-scrollbar {
     width: 0.6rem;
     border-radius: 10rem;
