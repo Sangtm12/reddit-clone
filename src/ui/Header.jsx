@@ -3,6 +3,9 @@ import Button from "./Button";
 import { HiOutlinePlus } from "react-icons/hi2";
 import Logo from "./Logo";
 import { Link, useParams } from "react-router-dom";
+import Modal from "./Modal";
+import Login from "../features/auth/Login";
+import ProfilePhoto from "./ProfilePhoto";
 
 function Header() {
   const { communityId } = useParams();
@@ -22,7 +25,17 @@ function Header() {
             <span className="ml-1">Create</span>
           </Button>
         </Link>
-        <Button light>Login</Button>
+        <Modal>
+          <Modal.Open opens="login">
+            <Button light>Login</Button>
+          </Modal.Open>
+          <Modal.Window name="login">
+            <Login />
+          </Modal.Window>
+        </Modal>
+        <Link to="/u/sangtm">
+          <ProfilePhoto src="/users/sangtm.png" />
+        </Link>
       </div>
     </div>
   );

@@ -2,23 +2,25 @@ import { useEffect, useRef } from "react";
 
 function useOutsideClick(closeFn) {
   const ref = useRef();
+  const ref2 = useRef();
 
   useEffect(() => {
     function helper(e) {
-      e.stopPropagation();
-
-      if (e.target !== ref.current && !ref.current.contains(e.target)) {
+      if (
+        e.target !== ref.current &&
+        !ref?.current.contains(e.target) &&
+        !ref2?.current?.contains(e.target)
+      ) {
         closeFn();
-        console.log("from hook: " + ref.current.contains(e.target));
       }
     }
-    document.addEventListener("click", helper);
+    document.addEventListener("click", helper, true);
     return () => {
-      document.removeEventListener("click", helper);
+      document.removeEventListener("click", helper, true);
     };
   }, [closeFn]);
 
-  return ref;
+  return { ref, ref2 };
 }
 
 export default useOutsideClick;

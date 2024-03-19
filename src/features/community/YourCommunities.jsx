@@ -3,6 +3,8 @@ import DropDown from "../../ui/DropDown";
 
 import { communities } from "../../data/communities";
 import CommunitySideBar from "./CommunitySideBar";
+import Modal from "../../ui/Modal";
+import CreateCommunity from "./CreateCommunity";
 
 function YourCommunities() {
   return (
@@ -13,10 +15,17 @@ function YourCommunities() {
         </DropDown.Title>
         <DropDown.Content>
           <DropDown.Item>
-            <button className="flex items-center">
-              <HiOutlinePlus className="inline text-2xl mr-2" />
-              Create a community
-            </button>
+            <Modal>
+              <Modal.Open opens="createCommunity">
+                <button className="flex items-center">
+                  <HiOutlinePlus className="inline text-2xl mr-2" />
+                  Create a community
+                </button>
+              </Modal.Open>
+              <Modal.Window name="createCommunity">
+                <CreateCommunity />
+              </Modal.Window>
+            </Modal>
           </DropDown.Item>
           {communities.map((community) => {
             return (

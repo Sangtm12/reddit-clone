@@ -1,5 +1,5 @@
-import CreateInput from "../features/create/CreateInput";
-import CreateRules from "../features/create/CreateRules";
+import CreateInput from "../features/createPost/CreateInput";
+import CreateRules from "../features/createPost/CreateRules";
 
 function Create() {
   return (

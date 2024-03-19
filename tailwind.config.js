@@ -20,6 +20,9 @@ export default {
         text: ["Noto Sans", "sans-serif"],
       },
     },
+    screens: {
+      lg: "1070px",
+    },
   },
   plugins: [],
 };
