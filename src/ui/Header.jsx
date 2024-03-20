@@ -4,7 +4,7 @@ import { HiOutlinePlus } from "react-icons/hi2";
 import Logo from "./Logo";
 import { Link, useParams } from "react-router-dom";
 import Modal from "./Modal";
-import Login from "../features/auth/Login";
+import Login from "../features/user/Login";
 import ProfilePhoto from "./ProfilePhoto";
 
 function Header() {

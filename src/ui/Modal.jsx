@@ -25,7 +25,6 @@ function Open({ children, opens }) {
   ref.current?.addEventListener("click", (e) => {
     e.stopPropagation(); //to stop event from reaching document and close the modal window
     setCurrentOpen((prev) => (prev === "" ? opens : ""));
-    console.log(children);
   });
 
   return cloneElement(children, {
@@ -65,7 +64,7 @@ function Window({ children, name }) {
               {children}
             </div>
           </div>,
-          document.body
+          document.body,
         )}
     </>
   );

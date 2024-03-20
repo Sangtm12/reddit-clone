@@ -3,6 +3,9 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
 import { useParams } from "react-router-dom";
 import Modal from "../../ui/Modal";
+import ChangeUsername from "./ChangeUsername";
+import ChangePassword from "./ChangePassword";
+import Logout from "./Logout";
 
 function SettingRow({ children, title, description, onClick }) {
   return (
@@ -49,9 +52,15 @@ function UserSettings() {
             <FiLogOut className="text-xl" />
           </SettingRow>
         </Modal.Open>
-        <Modal.Window name="username">username</Modal.Window>
-        <Modal.Window name="password">password</Modal.Window>
-        <Modal.Window name="logout">u sure?</Modal.Window>
+        <Modal.Window name="username">
+          <ChangeUsername />
+        </Modal.Window>
+        <Modal.Window name="password">
+          <ChangePassword />
+        </Modal.Window>
+        <Modal.Window name="logout">
+          <Logout />
+        </Modal.Window>
       </Modal>
     </div>
   );
