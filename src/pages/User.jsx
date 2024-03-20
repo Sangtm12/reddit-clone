@@ -1,6 +1,7 @@
 import UserInfo from "../features/user/UserInfo";
 import { users } from "../data/users";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
+import { BiSolidImageAdd } from "react-icons/bi";
 
 function User() {
   const { userId } = useParams();
@@ -20,11 +21,12 @@ function User() {
     <div className="h-[90vh] overflow-y-auto grow">
       <div className="grid grid-cols-[auto_370px] w-full">
         <div className=" mt-8 px-6">
-          <div className="flex">
+          <div className="flex relative">
             <img
               src={currentUser.photo}
               className=" w-16 h-16 rounded-full border-2 border-neutral-700"
             />
+            <BiSolidImageAdd />
             <div className="flex flex-col justify-center pl-3">
               <p className=" font-extrabold text-2xl">{currentUser.name}</p>
               <p className="text-text-secondary font-semibold">
