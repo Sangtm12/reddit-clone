@@ -31,7 +31,6 @@ function Open({ children, opens }) {
     onClick: (e) => {
       e.stopPropagation(); //to stop event from reaching document and close the modal window
       setCurrentOpen((prev) => (prev === "" ? opens : ""));
-      console.log(children);
     },
   });
 }

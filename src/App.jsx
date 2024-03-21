@@ -1,7 +1,5 @@
 import {
-  BrowserRouter,
-  Routes,
-  Route,
+  redirect,
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
@@ -47,12 +45,37 @@ const router = createBrowserRouter([
           { path: "comments", element: <UserComments /> },
           { path: "settings", element: <UserSettings /> },
         ],
+        action: async ({ request }) => {
+          const formData = await request.formData();
+          console.log(formData);
+          return null;
+        },
       },
       {
         path: "/create",
         element: <Create />,
       },
     ],
+  },
+  {
+    path: "/login",
+    action: async ({ request }) => {
+      const bruh = await request.formData();
+      console.log(Object.fromEntries(bruh));
+      return redirect("/");
+    },
+  },
+  {
+    path: "/create-new-user",
+    action: async ({ request }) => {
+      const bruh = await request.formData();
+      console.log(Object.fromEntries(bruh));
+      return null;
+    },
+  },
+  {
+    path: "*",
+    element: <div>404</div>,
   },
 ]);
 

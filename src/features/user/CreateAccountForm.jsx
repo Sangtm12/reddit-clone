@@ -1,7 +1,9 @@
+import { Form } from "react-router-dom";
+
 function CreateAccountForm({ setHaveAccount }) {
   return (
     <>
-      <form className="pt-8">
+      <Form className="pt-8" action="/create-new-user" method="post">
         <div className="flex flex-col mb-4">
           <label htmlFor="username" className="text-text-neutral pb-2">
             Username
@@ -41,7 +43,7 @@ function CreateAccountForm({ setHaveAccount }) {
         >
           Create new account
         </button>
-      </form>
+      </Form>
       <button
         onClick={() => {
           setHaveAccount(true);

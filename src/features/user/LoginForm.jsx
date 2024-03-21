@@ -1,7 +1,11 @@
+import { Form, useSubmit } from "react-router-dom";
+
 function LoginForm({ setHaveAccount }) {
+  const submit = useSubmit();
+
   return (
     <>
-      <form className="pt-8">
+      <Form className="pt-8" action="/login" method="post" onSubmit={submit}>
         <div className="flex flex-col mb-4">
           <label htmlFor="username" className="text-text-neutral pb-2">
             Username
@@ -30,7 +34,7 @@ function LoginForm({ setHaveAccount }) {
         >
           Login
         </button>
-      </form>
+      </Form>
       <button
         onClick={() => {
           setHaveAccount(false);

@@ -17,7 +17,7 @@ function YourCommunities() {
           <DropDown.Item>
             <Modal>
               <Modal.Open opens="createCommunity">
-                <button className="flex items-center">
+                <button className="flex items-center w-full ">
                   <HiOutlinePlus className="inline text-2xl mr-2" />
                   Create a community
                 </button>
