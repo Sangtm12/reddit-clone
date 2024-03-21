@@ -1,4 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
 import Home from "./pages/Home";
 
@@ -12,26 +18,46 @@ import UserPosts from "./features/user/UserPosts";
 import UserComments from "./features/user/UserComments";
 import UserSettings from "./features/user/UserSettings";
 
+const router = createBrowserRouter([
+  {
+    element: <AppLayout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/r/:communityId/",
+        element: <Community />,
+      },
+      {
+        path: "/r/:communityId/create",
+        element: <Create />,
+      },
+      {
+        path: "/r/:communityId/:postId",
+        element: <Post />,
+      },
+      {
+        path: "/u/:userId",
+        element: <User />,
+        children: [
+          { index: true, element: <UserOverview /> },
+          { path: "posts", element: <UserPosts /> },
+          { path: "comments", element: <UserComments /> },
+          { path: "settings", element: <UserSettings /> },
+        ],
+      },
+      {
+        path: "/create",
+        element: <Create />,
+      },
+    ],
+  },
+]);
+
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/r/:communityId/" element={<Community />} />
-          <Route path="/r/:communityId/create" element={<Create />} />
-          <Route path="/r/:communityId/:postId" element={<Post />} />
-          <Route path="/u/:userId" element={<User />}>
-            <Route index element={<UserOverview />} />
-            <Route path="posts" element={<UserPosts />} />
-            <Route path="comments" element={<UserComments />} />
-            <Route path="settings" element={<UserSettings />} />
-          </Route>
-          <Route path="/create" element={<Create />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

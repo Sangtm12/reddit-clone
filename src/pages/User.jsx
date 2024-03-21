@@ -2,6 +2,8 @@ import UserInfo from "../features/user/UserInfo";
 import { users } from "../data/users";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { BiSolidImageAdd } from "react-icons/bi";
+import Modal from "../ui/Modal";
+import UploadProfileImage from "../features/user/UploadProfileImage";
 
 function User() {
   const { userId } = useParams();
@@ -24,9 +26,19 @@ function User() {
           <div className="flex relative">
             <img
               src={currentUser.photo}
-              className=" w-16 h-16 rounded-full border-2 border-neutral-700"
+              className=" w-16 h-16 rounded-full border-2 border-neutral-400"
             />
-            <BiSolidImageAdd />
+            <Modal>
+              <Modal.Open>
+                <button className="absolute left-12 top-10 text-2xl text-neutral-400 cursor-pointer hover:text-neutral-500">
+                  <BiSolidImageAdd />
+                </button>
+              </Modal.Open>
+              <Modal.Window>
+                <UploadProfileImage />
+              </Modal.Window>
+            </Modal>
+
             <div className="flex flex-col justify-center pl-3">
               <p className=" font-extrabold text-2xl">{currentUser.name}</p>
               <p className="text-text-secondary font-semibold">
