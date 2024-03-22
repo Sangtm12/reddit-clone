@@ -1,7 +1,7 @@
 export async function login({ userName, password }) {
-  console.log("promise...");
-  const response = await new Promise((resolve, reject) =>
-    setTimeout(resolve(`Logged in as ${userName}`), 1000),
+  const promise = new Promise((resolve) =>
+    setTimeout(resolve(`Logged in as ${userName} (${password})`), 5000)
   );
+  const response = await promise;
   return response;
 }

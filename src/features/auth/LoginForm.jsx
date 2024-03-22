@@ -7,12 +7,11 @@ function LoginForm({ setHaveAccount }) {
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const { isLoading, mutate: login } = useLogin();
+  const { mutate: login } = useLogin();
 
   function handleSubmit(e) {
     e.preventDefault();
     if (userName && password && !userNameError && !passwordError) {
-      console.log("Logging in");
       login({ userName, password });
     } else {
       setUserNameError(userName ? "" : "Please enter a username");
