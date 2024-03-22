@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import Modal from "../../ui/Modal";
 import ChangeUsername from "./ChangeUsername";
 import ChangePassword from "./ChangePassword";
-import Logout from "./Logout";
+import Logout from "../auth/Logout";
 
 function SettingRow({ children, title, description, onClick }) {
   return (

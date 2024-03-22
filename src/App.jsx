@@ -1,8 +1,4 @@
-import {
-  redirect,
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Home from "./pages/Home";
 
@@ -15,6 +11,8 @@ import UserOverview from "./features/user/UserOverview";
 import UserPosts from "./features/user/UserPosts";
 import UserComments from "./features/user/UserComments";
 import UserSettings from "./features/user/UserSettings";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const router = createBrowserRouter([
   {
@@ -58,29 +56,19 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/login",
-    action: async ({ request }) => {
-      const bruh = await request.formData();
-      console.log(Object.fromEntries(bruh));
-      return redirect("/");
-    },
-  },
-  {
-    path: "/create-new-user",
-    action: async ({ request }) => {
-      const bruh = await request.formData();
-      console.log(Object.fromEntries(bruh));
-      return null;
-    },
-  },
-  {
     path: "*",
     element: <div>404</div>,
   },
 ]);
 
+const queryClient = new QueryClient();
+
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      {<RouterProvider router={router} />}
+    </QueryClientProvider>
+  );
 }
 
 export default App;
