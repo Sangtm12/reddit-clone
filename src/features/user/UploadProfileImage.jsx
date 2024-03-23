@@ -23,7 +23,7 @@ function UploadProfileImage() {
           type="submit"
           className="bg-orange w-full py-3 rounded-md font-bold"
         >
-          Login
+          Upload Image
         </button>
       </Form>
     </div>

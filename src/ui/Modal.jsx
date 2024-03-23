@@ -55,7 +55,7 @@ function Window({ children, name }) {
     <>
       {currentOpen !== name ||
         createPortal(
-          <div className="absolute w-full h-full top-0 backdrop-blur-md backdrop-brightness-[90%]">
+          <div className="absolute w-full h-full top-0 backdrop-brightness-[30%]">
             <div
               className="bg-background border-[1px] border-border rounded-xl absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
               ref={ref}
@@ -63,7 +63,7 @@ function Window({ children, name }) {
               {children}
             </div>
           </div>,
-          document.body,
+          document.body
         )}
     </>
   );

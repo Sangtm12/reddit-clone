@@ -1,15 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProfilePhoto from "../../ui/ProfilePhoto";
 
 function RecentPost({ post }) {
+  const navigate = useNavigate();
+
   return (
-    <Link
-      to={`r/${post.community.title}/${post.id}`}
+    <div
+      onClick={() => {
+        navigate(`r/${post.community.title}/${post.id}`);
+      }}
       className="px-4 pb-2 border-b-[1px] border-border block hover:bg-background-light"
     >
       <Link
         to={`r/${post.community.title}`}
         className="flex items-center gap-2 py-2"
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
       >
         <ProfilePhoto src={post.community.photo} />
         <span className="text-xs text-text-secondary font-semibold  hover:underline">
@@ -27,7 +34,7 @@ function RecentPost({ post }) {
           {`${post.comments.length > 1 ? "s" : ""}`}
         </span>
       </div>
-    </Link>
+    </div>
   );
 }
 

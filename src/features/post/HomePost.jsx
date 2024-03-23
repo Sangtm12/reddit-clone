@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { PiArrowFatDown, PiArrowFatUp } from "react-icons/pi";
 import { MdOutlineInsertComment } from "react-icons/md";
 import ProfilePhoto from "../../ui/ProfilePhoto";
@@ -15,9 +15,15 @@ function HomePost({ post, view = "card" }) {
     previewText = post.text;
   }
 
+  const navigate = useNavigate();
+
   return (
     <div className="border-b-[1px] border-border">
-      <Link to={`/r/${post.community.title}/${post.id}`}>
+      <div
+        onClick={() => {
+          navigate(`/r/${post.community.title}/${post.id}`);
+        }}
+      >
         <div className="hover:bg-post-hover px-4 py-2 rounded-2xl">
           <div className="flex items-center gap-2 text-text-secondary text-xs">
             <ProfilePhoto src={post.community.photo} size="big" />
@@ -47,7 +53,7 @@ function HomePost({ post, view = "card" }) {
             </Button>
           </div>
         </div>
-      </Link>
+      </div>
     </div>
   );
 }

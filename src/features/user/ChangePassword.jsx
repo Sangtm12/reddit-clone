@@ -48,7 +48,7 @@ function ChangePassword() {
               Current password
             </label>
             <input
-              type="text"
+              type="password"
               id="currentPassword"
               value={currentPassword}
               onChange={(e) => {

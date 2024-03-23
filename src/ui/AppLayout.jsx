@@ -10,8 +10,9 @@ function AppLayout() {
         <div className=" min-w-72 border-r-[1px] border-border h-full p-4 hidden lg:block overflow-auto">
           <Sidebar />
         </div>
-
-        <Outlet />
+        <div className="h-full overflow-auto flex-1">
+          <Outlet />
+        </div>
       </div>
     </>
   );
