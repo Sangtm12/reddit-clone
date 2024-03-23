@@ -2,7 +2,7 @@ import { useMutation } from "@tanstack/react-query";
 import { login as loginApi } from "../../API/login";
 
 export default function useLogin() {
-  const { isLoading, mutate } = useMutation({
+  const { status, mutate } = useMutation({
     mutationFn: loginApi,
     onSuccess: (data) => {
       console.log(data);
@@ -11,5 +11,5 @@ export default function useLogin() {
       console.error(err);
     },
   });
-  return { isLoading, mutate };
+  return { status, mutate };
 }

@@ -1,6 +1,8 @@
-export async function login({ userName, password }) {
+export async function login({ username, password }) {
   const promise = new Promise((resolve) =>
-    setTimeout(resolve(`Logged in as ${userName} (${password})`), 5000)
+    setTimeout(() => {
+      resolve(`Logged in as ${username} (${password})`);
+    }, 2000)
   );
   const response = await promise;
   return response;
