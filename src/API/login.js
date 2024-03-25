@@ -1,4 +1,5 @@
 export async function login({ username, password }) {
+  console.log("test");
   const promise = new Promise((resolve) =>
     setTimeout(() => {
       resolve(`Logged in as ${username} (${password})`);
