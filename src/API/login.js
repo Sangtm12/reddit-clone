@@ -5,6 +5,7 @@ export async function login({ username, password }) {
       resolve(`Logged in as ${username} (${password})`);
     }, 2000)
   );
+  console.log("test from login-api");
   const response = await promise;
   console.log("changed in branch main");
   console.log("created in branch login-api (FOR REAL)");
