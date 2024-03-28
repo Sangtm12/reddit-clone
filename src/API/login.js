@@ -5,10 +5,7 @@ export async function login({ username, password }) {
   try {
     const response = await axios.post(
       `http://${CONSTS.BASE_URL}/api/v1/login`,
-      {
-        username,
-        password,
-      }
+      { username: username, email: "test@test.com", password }
     );
     console.log(response.data);
   } catch (err) {
