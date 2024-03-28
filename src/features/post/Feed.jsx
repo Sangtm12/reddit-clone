@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { posts } from "../../data/posts";
 import Button from "../../ui/Button";
 import {
@@ -11,6 +12,7 @@ import HomePost from "./HomePost";
 
 function Feed() {
   const [view, setView] = useState("card");
+
   return (
     <div className="px-6">
       <div className="border-b-[1px] border-border h-12 flex justify-end items-center gap-2">
@@ -44,3 +46,10 @@ function Feed() {
 }
 
 export default Feed;
+
+/*
+
+/posts      : posts
+
+
+*/
