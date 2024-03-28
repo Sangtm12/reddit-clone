@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import Home from "./pages/Home";
-
 import Community from "./pages/Community";
 import User from "./pages/User";
 import Post from "./pages/Post";
@@ -67,6 +67,21 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       {<RouterProvider router={router} />}
+      <Toaster
+        position="top-center"
+        gutter={12}
+        containerStyle={{ margin: "8px" }}
+        toastOptions={{
+          success: {
+            duration: 3000,
+          },
+          error: {
+            duration: 5000,
+          },
+          className:
+            "font-[16px] max-w-[500px] py-4 px-6 bg-background-light text-text-neutral font-semibold text-xl border-[1px]",
+        }}
+      />
     </QueryClientProvider>
   );
 }
