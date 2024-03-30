@@ -13,6 +13,8 @@ function Header() {
 
   const { data, isLoading, error } = useUser();
 
+  console.log(data, isLoading, error);
+
   return (
     <div className="flex items-center justify-between border-b-[1px] border-border bg-background h-10 px-4 py-7 sticky top-0 z-10">
       <div className="basis-96">

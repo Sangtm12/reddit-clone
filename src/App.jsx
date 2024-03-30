@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import Home from "./pages/Home";
 import Community from "./pages/Community";
@@ -67,8 +66,7 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={false} />
-      <RouterProvider router={router} />
+      {<RouterProvider router={router} />}
       <Toaster
         position="top-center"
         gutter={12}
