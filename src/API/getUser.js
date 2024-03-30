@@ -2,19 +2,15 @@ import axios from "axios";
 import consts from "../constants/consts";
 
 async function getUser() {
-  const userData = JSON.parse(
-    localStorage.getItem("sb-tutaydcbsuglspuywosf-auth-token")
-  );
+  const tokens = JSON.parse(localStorage.getItem("tokens"));
 
-  console.log(userData);
-
-  const response = axios.get(consts.BASE_URL + "/user", {
+  const response = await axios.get(consts.BASE_URL + "/user", {
     headers: {
-      Authorization: `Bearer ${userData?.access_token}`,
+      Authorization: `Bearer ${tokens?.accessToken}`,
     },
   });
 
-  return response;
+  return response.data;
 }
 
 export default getUser;
