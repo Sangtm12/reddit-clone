@@ -7,7 +7,7 @@ export default function useLogin() {
     mutationFn: loginApi,
     onSuccess: (data) => {
       toast.success("Logged in successfully");
-      console.log(data);
+      window.localStorage.setItem("tokens", JSON.stringify(data));
     },
     onError: (err) => {
       toast.error(err.response.data.error);
