@@ -9,7 +9,7 @@ export default function useLogin() {
     onSuccess: (data) => {
       toast.success("Logged in successfully");
       window.localStorage.setItem("tokens", JSON.stringify(data));
-      queryClient.invalidateQueries({
+      queryClient.resetQueries({
         queryKey: ["user"],
       });
     },

@@ -1,8 +1,6 @@
-export default async function logout() {
-  const response = await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve("User logged out");
-    }, 1000);
-  });
+import axios from "./axios";
+
+export default async function logOut() {
+  const response = await axios.get("api/v1/logout");
   return response;
 }

@@ -11,7 +11,7 @@ import useUser from "../features/user/useUser";
 function Header() {
   const { communityId } = useParams();
 
-  const { data, isLoading, error } = useUser();
+  const { data: user, isLoading } = useUser();
 
   return (
     <div className="flex items-center justify-between border-b-[1px] border-border bg-background h-10 px-4 py-7 sticky top-0 z-10">
@@ -28,17 +28,20 @@ function Header() {
             <span className="ml-1">Create</span>
           </Button>
         </Link>
-        <Modal>
-          <Modal.Open opens="login">
-            <Button light>Login</Button>
-          </Modal.Open>
-          <Modal.Window name="login">
-            <Login />
-          </Modal.Window>
-        </Modal>
-        <Link to="/u/sangtm">
-          <ProfilePhoto src="/users/sangtm.png" />
-        </Link>
+        {isLoading || !user ? (
+          <Modal>
+            <Modal.Open opens="login">
+              <Button light>Login</Button>
+            </Modal.Open>
+            <Modal.Window name="login">
+              <Login />
+            </Modal.Window>
+          </Modal>
+        ) : (
+          <Link to="/u/sangtm">
+            <ProfilePhoto src="/users/sangtm.png" />
+          </Link>
+        )}
       </div>
     </div>
   );
