@@ -1,10 +1,9 @@
-import axios from "axios";
-import consts from "../constants/consts";
+import axios from "./axios";
 
 async function getUser() {
   const tokens = JSON.parse(localStorage.getItem("tokens"));
 
-  const response = await axios.get(consts.BASE_URL + "/user", {
+  const response = await axios.get("/user", {
     headers: {
       Authorization: `Bearer ${tokens?.accessToken}`,
     },
