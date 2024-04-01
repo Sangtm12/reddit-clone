@@ -8,7 +8,7 @@ async function getUser() {
     },
   });
 
-  return response;
+  return response.data;
 }
 
 export default getUser;

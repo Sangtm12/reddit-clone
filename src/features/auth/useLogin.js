@@ -14,7 +14,8 @@ export default function useLogin() {
       });
     },
     onError: (err) => {
-      toast.error(err.response.data.error);
+      console.log(err.response);
+      toast.error(err.response.data.message);
     },
   });
   return { status, mutate };
