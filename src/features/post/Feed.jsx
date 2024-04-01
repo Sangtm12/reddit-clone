@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { posts } from "../../data/posts";
 import Button from "../../ui/Button";
@@ -9,9 +9,14 @@ import {
   ClassicFill,
 } from "../../ui/RedditIcons";
 import HomePost from "./HomePost";
+import getPost from "../../API/getPosts";
 
 function Feed() {
   const [view, setView] = useState("card");
+
+  useEffect(() => {
+    getPost();
+  }, []);
 
   return (
     <div className="px-6">
