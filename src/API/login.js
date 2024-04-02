@@ -7,5 +7,5 @@ export async function login({ username, password }) {
     password,
   });
 
-  return response.data;
+  return response.data.data;
 }

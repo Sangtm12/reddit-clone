@@ -16,8 +16,6 @@ function Feed() {
 
   const { data: postsDb, status } = usePosts();
 
-  console.log(postsDb);
-
   return (
     <div className="px-6">
       <div className="border-b-[1px] border-border h-12 flex justify-end items-center gap-2">
@@ -43,9 +41,7 @@ function Feed() {
           Classic
         </Button>
       </div>
-      {/* {posts.map((post) => {
-        return <HomePost post={post} key={post.id} view={view} />;
-      })} */}
+
       {status === "pending" ? (
         <Spinner />
       ) : (

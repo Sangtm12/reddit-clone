@@ -7,6 +7,7 @@ export default function useLogin() {
   const { status, mutate } = useMutation({
     mutationFn: loginApi,
     onSuccess: (data) => {
+      console.log(data);
       toast.success("Logged in successfully");
       window.localStorage.setItem("tokens", JSON.stringify(data));
       queryClient.resetQueries({
