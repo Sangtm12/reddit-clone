@@ -1,6 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-import { posts } from "../../data/posts";
 import Button from "../../ui/Button";
 import {
   CardOutline,
@@ -9,14 +8,15 @@ import {
   ClassicFill,
 } from "../../ui/RedditIcons";
 import HomePost from "./HomePost";
-import getPost from "../../API/getPosts";
+import usePosts from "./usePosts";
+import Spinner from "../../ui/Spinner";
 
 function Feed() {
   const [view, setView] = useState("card");
 
-  useEffect(() => {
-    getPost();
-  }, []);
+  const { data: postsDb, status } = usePosts();
+
+  console.log(postsDb);
 
   return (
     <div className="px-6">
@@ -43,18 +43,18 @@ function Feed() {
           Classic
         </Button>
       </div>
-      {posts.map((post) => {
+      {/* {posts.map((post) => {
         return <HomePost post={post} key={post.id} view={view} />;
-      })}
+      })} */}
+      {status === "pending" ? (
+        <Spinner />
+      ) : (
+        postsDb.map((post) => {
+          return <HomePost post={post} key={post.id} view={view} />;
+        })
+      )}
     </div>
   );
 }
 
 export default Feed;
-
-/*
-
-/posts      : posts
-
-
-*/
