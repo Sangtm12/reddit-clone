@@ -20,48 +20,6 @@ function HomePost({ post, view = "card" }) {
     <div className="border-b-[1px] border-border">
       <div
         onClick={() => {
-          navigate(`/r/${post.community.name}/${post.id}`);
-        }}
-      >
-        <div className="hover:bg-post-hover px-4 py-2 rounded-2xl">
-          <div className="flex items-center gap-2 text-text-secondary text-xs">
-            <ProfilePhoto src={post.Community[0].picture} size="big" />
-            <Link
-              to={"/r/" + post.Community[0].name}
-              className="font-bold text-text-neutral hover:underline"
-            >
-              r/{post.Community[0].name}
-            </Link>
-            &#x2022; {post.date}
-          </div>
-          <div className="text-lg font-bold py-2">{post.title}</div>
-          {view === "card" && <p className="mb-4 font-light ">{previewText}</p>}
-          <div className="flex gap-4">
-            <div className="flex items-center bg-background-light rounded-full font-bold">
-              <Button rounded>
-                <PiArrowFatUp className="text-xl hover:text-orange" />
-              </Button>
-              {post.upvotes}
-              <Button rounded>
-                <PiArrowFatDown className="text-xl hover:text-blue" />
-              </Button>
-            </div>
-            <Button light>
-              <MdOutlineInsertComment className="text-xl mr-2" />
-              {post.comments?.length}
-            </Button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default HomePost;
-
-/*<div className="border-b-[1px] border-border">
-      <div
-        onClick={() => {
           navigate(`/r/${post.community.title}/${post.id}`);
         }}
       >
@@ -95,4 +53,10 @@ export default HomePost;
           </div>
         </div>
       </div>
-    </div> */
+    </div>
+  );
+}
+
+export default HomePost;
+
+/* */
