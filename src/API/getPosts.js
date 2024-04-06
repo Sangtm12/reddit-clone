@@ -1,9 +1,9 @@
 import axios from "./axios";
 
 async function getPost() {
-  const response = await axios.get("api/v1/post");
-
-  return response.data.data.Posts;
+  const response = await axios.get("/posts");
+  console.log(response);
+  return response.data;
 }
 
 export default getPost;
