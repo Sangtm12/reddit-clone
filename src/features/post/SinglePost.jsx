@@ -7,9 +7,11 @@ import AddComment from "./AddComment";
 import ProfilePhoto from "../../ui/ProfilePhoto";
 import usePost from "./usePost";
 import Spinner from "../../ui/Spinner";
+import useUpdateInteraction from "../user/useUpdateInteraction";
 
 function Post() {
   const { data: currentPost, status } = usePost();
+  const { mutate: updateInteraction } = useUpdateInteraction();
 
   return (
     <div className="p-8">
@@ -34,7 +36,16 @@ function Post() {
           <div className="text-text-neutral my-6">{currentPost.text}</div>
           <div className="flex gap-4">
             <div className="flex items-center bg-background-light rounded-full font-bold">
-              <Button rounded>
+              <Button
+                rounded
+                onClick={() => {
+                  updateInteraction({
+                    upvoteOrDownvote: "upvote",
+                    postOrComment: "post",
+                    id: currentPost.id,
+                  });
+                }}
+              >
                 <PiArrowFatUp className="text-xl hover:text-orange" />
               </Button>
               {currentPost.upvotes}
