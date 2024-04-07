@@ -1,9 +1,9 @@
 import axios from "./axios";
 
-async function getPost() {
+async function getPosts() {
   const response = await axios.get("/posts");
-  console.log(response);
+
   return response.data;
 }
 
-export default getPost;
+export default getPosts;
