@@ -14,6 +14,8 @@ import UserComments from "./features/user/UserComments";
 import UserSettings from "./features/user/UserSettings";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useEffect } from "react";
+import getCommunity from "./API/getCommunity";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +67,10 @@ const router = createBrowserRouter([
 const queryClient = new QueryClient();
 
 function App() {
+  useEffect(() => {
+    getCommunity();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
