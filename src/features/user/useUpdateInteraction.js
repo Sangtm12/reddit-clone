@@ -11,10 +11,17 @@ function useUpdateInteraction() {
   const { mutate, status } = useMutation({
     mutationFn: async ({ upvoteOrDownvote, postOrComment, id }) => {
       let newInteraction = { ...currentInteractions };
-      console.log(newInteraction);
       try {
         if (postOrComment === "post") {
-          if (newInteraction.posts.find((post) => post.id === id)) {
+          const existingPost = newInteraction.posts.find(
+            (post) => post.id === id
+          );
+          if (existingPost && existingPost.interaction === upvoteOrDownvote) {
+            const existingPostIndex = newInteraction.posts.findIndex(
+              (post) => post.id === id
+            );
+            newInteraction.posts.splice(existingPostIndex, 1);
+          } else if (existingPost) {
             newInteraction.posts = newInteraction.posts.map((post) => {
               return post.id === id
                 ? { id, interaction: upvoteOrDownvote }
@@ -51,6 +58,9 @@ function useUpdateInteraction() {
       queryClient.invalidateQueries({
         queryKey: ["loggedInUser"],
       });
+    },
+    onError: (err) => {
+      console.error(err);
     },
   });
 

@@ -1,17 +1,13 @@
 import { Link } from "react-router-dom";
-import Button from "../../ui/Button";
-import { PiArrowFatDown, PiArrowFatUp } from "react-icons/pi";
-import { MdOutlineInsertComment } from "react-icons/md";
 import PostComments from "./PostComments";
 import AddComment from "./AddComment";
 import ProfilePhoto from "../../ui/ProfilePhoto";
 import usePost from "./usePost";
 import Spinner from "../../ui/Spinner";
-import useUpdateInteraction from "../user/useUpdateInteraction";
+import PostInteractions from "./PostInteractions";
 
 function Post() {
   const { data: currentPost, status } = usePost();
-  const { mutate: updateInteraction } = useUpdateInteraction();
 
   return (
     <div className="p-8">
@@ -23,7 +19,7 @@ function Post() {
             <ProfilePhoto src={currentPost?.community.photo} size="big" />
             <div>
               <Link to={`/r/${currentPost.community.title}`}>
-                <h3 className="font-bold inline-block hover:underline">
+                <h3 className="font-bold inline-block hover:underline ">
                   r/{currentPost.community.title}
                 </h3>{" "}
               </Link>
@@ -34,30 +30,7 @@ function Post() {
           </div>
           <div className="text-2xl font-bold mt-2">{currentPost.title}</div>
           <div className="text-text-neutral my-6">{currentPost.text}</div>
-          <div className="flex gap-4">
-            <div className="flex items-center bg-background-light rounded-full font-bold">
-              <Button
-                rounded
-                onClick={() => {
-                  updateInteraction({
-                    upvoteOrDownvote: "upvote",
-                    postOrComment: "post",
-                    id: currentPost.id,
-                  });
-                }}
-              >
-                <PiArrowFatUp className="text-xl hover:text-orange" />
-              </Button>
-              {currentPost.upvotes}
-              <Button rounded>
-                <PiArrowFatDown className="text-xl hover:text-blue" />
-              </Button>
-            </div>
-            <Button light>
-              <MdOutlineInsertComment className="text-xl mr-2" />
-              {currentPost.comments?.length}
-            </Button>
-          </div>
+          <PostInteractions currentPost={currentPost} />
 
           <AddComment className="my-8" />
 

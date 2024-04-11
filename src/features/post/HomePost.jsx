@@ -1,9 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import { PiArrowFatDown, PiArrowFatUp } from "react-icons/pi";
-import { MdOutlineInsertComment } from "react-icons/md";
 import ProfilePhoto from "../../ui/ProfilePhoto";
 
-import Button from "../../ui/Button";
+import PostInteractions from "./PostInteractions";
 
 function HomePost({ post, view = "card" }) {
   let previewText;
@@ -36,21 +34,7 @@ function HomePost({ post, view = "card" }) {
           </div>
           <div className="text-lg font-bold py-2">{post.title}</div>
           {view === "card" && <p className="mb-4 font-light ">{previewText}</p>}
-          <div className="flex gap-4">
-            <div className="flex items-center bg-background-light rounded-full font-bold">
-              <Button rounded>
-                <PiArrowFatUp className="text-xl hover:text-orange" />
-              </Button>
-              {post.upvotes}
-              <Button rounded>
-                <PiArrowFatDown className="text-xl hover:text-blue" />
-              </Button>
-            </div>
-            <Button light>
-              <MdOutlineInsertComment className="text-xl mr-2" />
-              {post.comments?.length}
-            </Button>
-          </div>
+          <PostInteractions currentPost={post} />
         </div>
       </div>
     </div>
