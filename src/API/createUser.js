@@ -8,7 +8,7 @@ export default async function createUser({ username, password }) {
       name: username,
       photo: "/users/sangtm.png",
       posts: 0,
-      createdAt: "Jan 23, 2020",
+      createdAt: Date.now(),
       interactions: {
         posts: [],
         comments: [],
