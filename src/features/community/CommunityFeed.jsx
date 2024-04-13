@@ -1,15 +1,20 @@
-import { useParams } from "react-router-dom";
-import { posts } from "../../data/posts";
+import Spinner from "../../ui/Spinner";
 import HomePost from "../post/HomePost";
+import useCommunityFeed from "./useCommunityFeed";
 
 function CommunityFeed() {
-  const { communityId } = useParams();
-  const communityPosts = posts.filter((post) => {
-    return post.community.title === communityId;
-  });
-  return (
+  // const { communityId } = useParams();
+  // const communityPosts = posts.filter((post) => {
+  //   return post.community.title === communityId;
+  // });
+
+  const { communityFeed, status } = useCommunityFeed();
+
+  return status !== "success" ? (
+    <Spinner />
+  ) : (
     <div>
-      {communityPosts.map((post) => {
+      {communityFeed?.map((post) => {
         return <HomePost post={post} key={post.id} />;
       })}
     </div>
