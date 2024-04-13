@@ -14,7 +14,7 @@ function PostInteractions({ currentPost }) {
   const { data: user } = useLoggedInUser();
 
   const vote =
-    user.interactions.posts.find((post) => post.id === currentPost.id)
+    user?.interactions?.posts?.find((post) => post.id === currentPost.id)
       ?.interaction || null;
 
   return (
@@ -22,7 +22,8 @@ function PostInteractions({ currentPost }) {
       <div className="flex items-center bg-background-light rounded-full font-bold">
         <Button
           rounded
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
             updateInteraction({
               upvoteOrDownvote: "upvote",
               postOrComment: "post",
@@ -39,7 +40,8 @@ function PostInteractions({ currentPost }) {
         {currentPost.upvotes}
         <Button
           rounded
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation();
             updateInteraction({
               upvoteOrDownvote: "downvote",
               postOrComment: "post",

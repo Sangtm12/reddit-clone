@@ -7,16 +7,17 @@ export default function useLogin() {
   const { status, mutate } = useMutation({
     mutationFn: loginApi,
     onSuccess: (data) => {
-      console.log(data);
       toast.success("Logged in successfully");
-      window.localStorage.setItem("tokens", JSON.stringify(data));
-      queryClient.resetQueries({
-        queryKey: ["user"],
+      console.log(data);
+      //window.localStorage.setItem("tokens", JSON.stringify(data));
+      //because no JWT for json-server
+      window.localStorage.setItem("user", data.id);
+      queryClient.invalidateQueries({
+        queryKey: ["loggedInUser"],
       });
     },
     onError: (err) => {
-      console.log(err.response);
-      toast.error(err.response.data.message);
+      toast.error(err);
     },
   });
   return { status, mutate };

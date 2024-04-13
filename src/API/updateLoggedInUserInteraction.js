@@ -1,7 +1,7 @@
 import axios from "./axios";
 
-async function updateLoggedInUserInteraction(newInteraction) {
-  const response = await axios.patch("/loggedInUser", {
+async function updateLoggedInUserInteraction(userId, newInteraction) {
+  const response = await axios.patch(`/users/${userId}`, {
     interactions: newInteraction,
   });
   return response.data;

@@ -10,9 +10,8 @@ export default function useLogout() {
     mutationFn: logOutApi,
     onSuccess: () => {
       toast.success("Logged out successfully");
-      localStorage.removeItem("tokens");
       queryClient.resetQueries({
-        queryKey: ["user"],
+        queryKey: ["loggedInUser"],
       });
       navigate("/");
     },

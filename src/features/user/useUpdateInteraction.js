@@ -11,9 +11,10 @@ function useUpdateInteraction() {
   const { mutate, status } = useMutation({
     mutationFn: async ({ upvoteOrDownvote, postOrComment, id }) => {
       let newInteraction = { ...currentInteractions };
+      if (!newInteraction.posts) return null;
       try {
         if (postOrComment === "post") {
-          const existingPost = newInteraction.posts.find(
+          const existingPost = newInteraction.posts?.find(
             (post) => post.id === id
           );
           if (existingPost && existingPost.interaction === upvoteOrDownvote) {
@@ -51,7 +52,10 @@ function useUpdateInteraction() {
         console.error(err);
       }
 
-      const result = await updateLoggedInUserInteraction(newInteraction);
+      const result = await updateLoggedInUserInteraction(
+        loggedInUser.id,
+        newInteraction
+      );
       return result;
     },
     onSuccess: () => {
