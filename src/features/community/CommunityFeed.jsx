@@ -3,11 +3,6 @@ import HomePost from "../post/HomePost";
 import useCommunityFeed from "./useCommunityFeed";
 
 function CommunityFeed() {
-  // const { communityId } = useParams();
-  // const communityPosts = posts.filter((post) => {
-  //   return post.community.title === communityId;
-  // });
-
   const { communityFeed, status } = useCommunityFeed();
 
   return status !== "success" ? (

@@ -5,6 +5,7 @@ import ProfilePhoto from "../../ui/ProfilePhoto";
 import usePost from "./usePost";
 import Spinner from "../../ui/Spinner";
 import PostInteractions from "./PostInteractions";
+import calcDate from "../../utils/calcDate";
 
 function Post() {
   const { data: currentPost, status } = usePost();
@@ -24,7 +25,9 @@ function Post() {
                 </h3>{" "}
               </Link>
               &#x2022;{" "}
-              <span className="text-text-secondary">{currentPost.date}</span>
+              <span className="text-text-secondary">
+                {calcDate(currentPost.date)}
+              </span>
               <p className="text-text-secondary">{currentPost.user}</p>
             </div>
           </div>

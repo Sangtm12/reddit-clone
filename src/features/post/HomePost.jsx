@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import ProfilePhoto from "../../ui/ProfilePhoto";
-
 import PostInteractions from "./PostInteractions";
+import calcDate from "../../utils/calcDate";
 
 function HomePost({ post, view = "card" }) {
   let previewText;
@@ -30,7 +30,7 @@ function HomePost({ post, view = "card" }) {
             >
               r/{post.community.title}
             </Link>
-            &#x2022; {post.date}
+            &#x2022; {calcDate(post.date)}
           </div>
           <div className="text-lg font-bold py-2">{post.title}</div>
           {view === "card" && <p className="mb-4 font-light ">{previewText}</p>}

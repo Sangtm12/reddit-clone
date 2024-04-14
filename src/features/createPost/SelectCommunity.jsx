@@ -77,7 +77,6 @@ function SelectCommunity({ community }) {
             onClick={(e) => {
               e.stopPropagation();
               setIsOpen(true);
-              console.log("clicked");
             }}
           />
         ) : (

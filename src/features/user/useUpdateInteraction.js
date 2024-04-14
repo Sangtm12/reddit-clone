@@ -29,6 +29,8 @@ function useUpdateInteraction() {
             (post) => post.id === id
           );
           newInteraction.posts.splice(existingPostIndex, 1);
+          // newInteraction.upvotes -= 1;
+          console.log(currentInteractions);
         } else if (existingPost) {
           newInteraction.posts = newInteraction.posts.map((post) => {
             return post.id === id
@@ -69,14 +71,10 @@ function useUpdateInteraction() {
         id,
         currentInteractions
       );
-      // console.log(currentInteractions);
       const result = await updateLoggedInUserInteraction(
         loggedInUser.id,
         newInteractions
       );
-      //currentInteractions because by the time mutationFn is called, queryData will have already been updated with newInteraction
-      //that is for when there's already soem interaction
-      //somehow, when there is no interaction, current interaction still stays the same (empty) => server will not be updated
       return result;
     },
     // onSuccess: () => {
